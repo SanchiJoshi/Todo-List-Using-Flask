@@ -25,6 +25,10 @@ class Todo:
     
     def updateid(self, newid):
         self.id = newid
+    
+    def delete(self):
+        global todo_list_global
+        todo_list_global = [todo for todo in todo_list_global if todo.id != self.id]
 
 @app.route("/")
 def hello_world():
@@ -54,6 +58,17 @@ def update(todo_id):
                 todo.updateNotComplete()
             else:
                 todo.updateComplete()
+    return redirect("/")
+
+@app.route("/delete/<int:todo_id>")
+def delete(todo_id):
+    global todo_list_global
+
+    for todo in todo_list_global:
+        if todo.id == todo_id:
+            todo.delete()
+            break
+
     return redirect("/")
 
 

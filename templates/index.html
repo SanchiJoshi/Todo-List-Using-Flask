@@ -8,9 +8,25 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    <style>
+        body {
+            background-image: url('/static/todo.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+    </style>
 </head>
 
-<body style="background: peachpuff">
+<body>
     <div style="margin-top: 50px;" class="ui container">
         <h1 class="ui center aligned header">To Do App</h1>
 
@@ -35,7 +51,7 @@
             {% endif %}
 
             <a class= "ui blue button" href="/update/{{todo.id}}">Update</a>
-            <a class= "ui brown button" href="/delete/{{todo.id}}">Delete</a>
+            <a class= "ui red button" href="/delete/{{todo.id}}">Delete</a>
 
         </div>
         {% endfor %}
